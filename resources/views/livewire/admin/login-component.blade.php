@@ -3,18 +3,17 @@
     <div class="w-full max-w-lg space-y-6 relative z-10">
         
         <!-- Brand Header -->
-        <div class="text-center space-y-2">
-            <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-[#FFFDF8] shadow-xl border-2 border-[#F5A623] p-2 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                <img src="{{ asset('images/logobigapple.png') }}" alt="Big Apple Diner" class="w-full h-full object-contain">
-            </div>
-            <div>
-                <h1 class="font-bebas text-4xl sm:text-5xl text-[#1F1F1F] tracking-wide uppercase drop-shadow-sm">
-                    Big Apple <span class="text-[#C21818]">Diner</span>
-                </h1>
-                <p class="text-xs uppercase tracking-widest text-[#C21818] font-black">
-                    Panel de Administración • 7 Sucursales Mérida
-                </p>
-            </div>
+        <div class="text-center space-y-3">
+            <a href="/" class="inline-flex items-center justify-center gap-3.5 group">
+                <img src="{{ asset('images/logobigapple.png') }}" alt="Big Apple Diner" class="w-16 h-16 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+                <div class="text-left leading-none">
+                    <span class="text-[10px] font-black tracking-widest text-[#17A085] uppercase block">7 SUCURSALES MÉRIDA</span>
+                    <div class="font-bebas text-3xl sm:text-4xl text-[#1F1F1F] tracking-wide uppercase mt-0.5">
+                        BIG APPLE <span class="text-[#C21818]">DINER</span> <span class="text-[#17A085] text-xs font-normal">ADMIN</span>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-wider text-[#8E0E15] font-bold mt-0.5">Panel de Administración Integral</p>
+                </div>
+            </a>
         </div>
 
         <!-- Quick Profile Selector (7 Sucursales + Super Admin) -->
