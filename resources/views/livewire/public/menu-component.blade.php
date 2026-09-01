@@ -104,13 +104,15 @@
                         <div class="bg-gradient-to-br from-[#8E0E15] to-[#C21818] text-[#FFFDF8] rounded-3xl border-2 border-[#F5A623] shadow-2xl overflow-hidden relative group">
                             
                             <!-- Top Image Banner for Combo -->
-                            <div class="relative h-56 w-full overflow-hidden bg-black/40">
+                            <div class="relative h-60 w-full overflow-hidden {{ $topCombo->image ? 'bg-gradient-to-br from-[#6B0A0F] to-[#8E0E15] flex items-center justify-center p-4' : 'bg-black/40' }}">
                                 <img 
                                     src="{{ $topCombo->image_url }}" 
                                     alt="{{ $topCombo->name }}" 
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    class="w-full h-full {{ $topCombo->image ? 'object-contain drop-shadow-2xl group-hover:scale-105' : 'object-cover group-hover:scale-105' }} transition-transform duration-500"
                                 >
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#8E0E15] via-transparent to-black/30"></div>
+                                @if(!$topCombo->image)
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#8E0E15] via-transparent to-black/30"></div>
+                                @endif
                                 <div class="absolute top-4 right-4 bg-[#F5A623] text-[#1F1F1F] font-black text-[11px] px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg">
                                     ★ COMBO DESTACADO
                                 </div>
@@ -224,14 +226,16 @@
                     <div class="diner-card rounded-3xl overflow-hidden flex flex-col justify-between group">
                         
                         <!-- Top Food Image Card -->
-                        <div class="relative h-48 w-full overflow-hidden bg-black/10">
+                        <div class="relative h-48 w-full overflow-hidden {{ $product->image ? 'bg-gradient-to-br from-[#FFFDF8] via-[#FAF3E0] to-[#F5E6CC] flex items-center justify-center p-3' : 'bg-black/10' }}">
                             <img 
                                 src="{{ $product->image_url }}" 
                                 alt="{{ $product->name }}" 
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                class="w-full h-full {{ $product->image ? 'object-contain drop-shadow-lg group-hover:scale-110' : 'object-cover group-hover:scale-110' }} transition-transform duration-500"
                                 loading="lazy"
                             >
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            @if(!$product->image)
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            @endif
 
                             <!-- Badges -->
                             <div class="absolute top-3 left-3 flex flex-col gap-1">
@@ -397,7 +401,4 @@
 
         </div>
     </section>
-
-    <!-- MODAL POPUP FOR CUSTOMIZATION -->
-    @livewire('public.product-modal')
 </div>

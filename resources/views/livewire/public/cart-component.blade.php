@@ -1,6 +1,9 @@
 <div 
-    x-data="{ isOpen: @entangle('isOpen') }" 
+    x-data="{ isOpen: @entangle('isOpen').live }" 
+    x-on:open-cart.window="isOpen = true; $wire.loadCart()"
+    x-on:toggle-cart.window="isOpen = !isOpen; $wire.loadCart()"
     x-on:open-whatsapp-link.window="window.open($event.detail.url, '_blank')"
+    x-cloak
 >
     <!-- Slide-over Drawer Backdrop -->
     <div 
@@ -12,6 +15,7 @@
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
         class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity" 
+        @click="isOpen = false"
         wire:click="closeCart"
     ></div>
 
@@ -37,7 +41,11 @@
                         <p class="text-xs text-[#F5A623]">Enviamos directo a la cocina por WhatsApp</p>
                     </div>
                 </div>
-                <button wire:click="closeCart" class="text-white hover:text-[#F5A623] text-xl font-bold bg-black/20 hover:bg-black/40 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer">
+                <button 
+                    @click="isOpen = false"
+                    wire:click="closeCart" 
+                    class="text-white hover:text-[#F5A623] text-xl font-bold bg-black/20 hover:bg-black/40 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"
+                >
                     ✕
                 </button>
             </div>

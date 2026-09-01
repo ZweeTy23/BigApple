@@ -38,6 +38,13 @@ class CartComponent extends Component
         $this->loadCart();
     }
 
+    #[On('open-cart')]
+    public function openCart()
+    {
+        $this->isOpen = true;
+        $this->loadCart();
+    }
+
     #[On('cart-updated')]
     public function loadCart()
     {

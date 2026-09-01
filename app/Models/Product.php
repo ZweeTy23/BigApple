@@ -41,7 +41,10 @@ class Product extends Model
     public function getImageUrlAttribute(): string
     {
         if (!empty($this->image)) {
-            return $this->image;
+            if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://') || str_starts_with($this->image, 'data:')) {
+                return $this->image;
+            }
+            return asset($this->image);
         }
 
         // Curated high quality food photography fallbacks based on category/type
