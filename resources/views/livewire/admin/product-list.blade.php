@@ -40,8 +40,15 @@
                 @foreach($products as $p)
                     <tr class="hover:bg-[#FDF8EE] transition-colors">
                         <td class="p-4">
-                            <strong class="text-[#1F1F1F] text-sm block">{{ $p->name }}</strong>
-                            <span class="text-[11px] text-[#6B6255] max-w-md block line-clamp-1">{{ $p->description }}</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-[#EADDC9] flex items-center justify-center overflow-hidden shrink-0 p-1 shadow-sm">
+                                    <img src="{{ $p->image_url }}" alt="{{ $p->name }}" class="w-full h-full object-contain">
+                                </div>
+                                <div>
+                                    <strong class="text-[#1F1F1F] text-sm block">{{ $p->name }}</strong>
+                                    <span class="text-[11px] text-[#6B6255] max-w-md block line-clamp-1">{{ $p->description }}</span>
+                                </div>
+                            </div>
                         </td>
                         <td class="p-4">
                             <span class="bg-[#FDF8EE] border border-[#EADDC9] px-2 py-1 rounded text-[10px] font-bold text-[#C21818]">

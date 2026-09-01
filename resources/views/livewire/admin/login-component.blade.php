@@ -4,8 +4,8 @@
         
         <!-- Brand Header -->
         <div class="text-center space-y-2">
-            <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-[#C21818] via-[#D11919] to-[#8E0E15] shadow-xl border-2 border-[#F5A623] p-4 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                <span class="text-4xl select-none">🍔</span>
+            <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-[#FFFDF8] shadow-xl border-2 border-[#F5A623] p-2 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                <img src="{{ asset('images/logobigapple.png') }}" alt="Big Apple Diner" class="w-full h-full object-contain">
             </div>
             <div>
                 <h1 class="font-bebas text-4xl sm:text-5xl text-[#1F1F1F] tracking-wide uppercase drop-shadow-sm">

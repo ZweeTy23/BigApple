@@ -436,6 +436,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'king-kong-burger',
                 'description' => 'La única hamburguesa con todos los ingredientes: Champiñones, tocino, chorizo, piña, jamón, mix de quesos y vegetales frescos. Incluye papas cajún.',
                 'price' => 129.00,
+                'image' => 'images/bigapplenobg/kingkong129.png',
                 'badge' => 'Insignia Diner',
             ],
             [
@@ -443,6 +444,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'big-apple-burger',
                 'description' => 'Hamburguesa estrella con doble carne artesanal, bañada con aderezo Jack Daniel\'s, doble mezcla de quesos, tocino y vegetales frescos. Incluye papas cajún.',
                 'price' => 149.00,
+                'image' => 'images/bigapplenobg/bigapple149.png',
                 'badge' => 'Especialidad',
             ],
             [
@@ -450,30 +452,35 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'bacon-burger',
                 'description' => 'Hamburguesa con tiras de tocino crujiente, mix de quesos y vegetales frescos. Incluye papas cajún.',
                 'price' => 95.00,
+                'image' => 'images/bigapplenobg/bacon95.png',
             ],
             [
                 'name' => 'Hawaiana Burger',
                 'slug' => 'hawaiana-burger',
                 'description' => 'Hamburguesa con rodaja de piña asada a la plancha, mix de quesos y vegetales frescos. Incluye papas cajún.',
                 'price' => 95.00,
+                'image' => 'images/bigapplenobg/hawaiana95.png',
             ],
             [
                 'name' => 'Chorizo Burger',
                 'slug' => 'chorizo-burger',
                 'description' => 'Hamburguesa con toque de chorizo regional asado, mix de quesos y vegetales frescos. Incluye papas cajún.',
                 'price' => 95.00,
+                'image' => 'images/bigapplenobg/chorizo95.png',
             ],
             [
                 'name' => 'Mushroom Burger',
                 'slug' => 'mushroom-burger',
                 'description' => 'Hamburguesa con champiñones salteados a la plancha, mix de quesos y vegetales frescos. Incluye papas cajún.',
                 'price' => 95.00,
+                'image' => 'images/bigapplenobg/mushroom95.png',
             ],
             [
                 'name' => 'Clásica Original Burger',
                 'slug' => 'clasica-original-burger',
                 'description' => 'Hamburguesa clásica con jugosa carne artesanal, mix de quesos, aderezo especial y vegetales frescos. Incluye papas cajún.',
                 'price' => 85.00,
+                'image' => 'images/bigapplenobg/clasicaorigina85.png',
             ],
         ];
 
@@ -484,6 +491,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $b['slug'],
                 'description' => $b['description'],
                 'price' => $b['price'],
+                'image' => $b['image'] ?? null,
                 'badge' => $b['badge'] ?? null,
                 'type' => 'burger',
             ]);
@@ -496,18 +504,21 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'crispy-chicken-sandwich',
                 'description' => 'Tiras de pollo crujientes, mix de quesos y vegetales frescos. Pídela bañada en tu salsa favorita.',
                 'price' => 95.00,
+                'image' => 'images/bigapplenobg/chickencrispy95.png',
             ],
             [
                 'name' => 'Boneless Chicken Sandwich',
                 'slug' => 'boneless-chicken-sandwich',
                 'description' => 'Jugosos boneless de pechuga, mix de quesos y vegetales frescos. Pídela bañada en tu salsa favorita.',
                 'price' => 95.00,
+                'image' => 'images/bigapplenobg/chickenboneless95.png',
             ],
             [
                 'name' => 'Pechuga a la Plancha Sandwich',
                 'slug' => 'pechuga-plancha-sandwich',
                 'description' => 'Pechuga de pollo a la plancha, mix de quesos y vegetales frescos. Pídela bañada en tu salsa favorita.',
                 'price' => 95.00,
+                'image' => 'images/bigapplenobg/chickenpenchugalaplancha95.png',
             ],
         ];
 
@@ -518,6 +529,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $cs['slug'],
                 'description' => $cs['description'],
                 'price' => $cs['price'],
+                'image' => $cs['image'] ?? null,
                 'type' => 'chicken_sandwich',
             ]);
         }
@@ -529,12 +541,14 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'smash-original',
                 'description' => 'Carne artesanal aplastada a fuego alto con aderezo de la casa, mix de quesos fundidos y pepinillos.',
                 'price' => 99.00,
+                'image' => 'images/bigapplenobg/smashoriginal99.png',
             ],
             [
                 'name' => 'Smash Doble',
                 'slug' => 'smash-doble',
                 'description' => 'Doble carne artesanal smash con aderezo de la casa, doble mix de quesos fundidos y pepinillos.',
                 'price' => 119.00,
+                'image' => 'images/bigapplenobg/smashdoble119.png',
                 'badge' => 'Doble Carne',
             ],
             [
@@ -542,12 +556,14 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'smash-bacon',
                 'description' => 'Doble carne artesanal smash con aderezo de la casa, tocino crujiente, mix de quesos y pepinillos.',
                 'price' => 139.00,
+                'image' => 'images/bigapplenobg/smashbacon139.png',
             ],
             [
                 'name' => 'Smash Mushroom',
                 'slug' => 'smash-mushroom',
                 'description' => 'Doble carne artesanal smash con aderezo de la casa, champiñones salteados, mix de quesos y pepinillos.',
                 'price' => 139.00,
+                'image' => 'images/bigapplenobg/smashmushroom139.png',
             ],
         ];
 
@@ -558,6 +574,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $sm['slug'],
                 'description' => $sm['description'],
                 'price' => $sm['price'],
+                'image' => $sm['image'] ?? null,
                 'badge' => $sm['badge'] ?? null,
                 'type' => 'standard',
             ]);
@@ -598,6 +615,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'big-pack',
             'description' => '6 boneless, 6 tiras crispy, 6 alitas, 4 jalapeños poppers, 4 dedos de queso, papas gajo, apio y zanahoria. Incluye: Buffalo, queso cheddar, ranch, BBQ y pomodoro.',
             'price' => 329.00,
+            'image' => 'images/bigapplenobg/bigpack329.png',
             'badge' => 'Súper Combo',
             'type' => 'standard',
         ]);
@@ -608,6 +626,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'central-pack',
             'description' => '6 boneless, 3 tiras crispy, 4 alitas, 2 jalapeños poppers, 2 dedos de queso, papas gajo, apio y zanahoria. Incluye: Buffalo, queso cheddar, ranch, BBQ y pomodoro.',
             'price' => 229.00,
+            'image' => 'images/bigapplenobg/centralpack229.png',
             'badge' => 'Para Compartir',
             'type' => 'standard',
         ]);
@@ -618,6 +637,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'paquete-pareja',
             'description' => 'Hamburguesa Bacon + Hamburguesa Crispy + 2 Bebidas Naturales (500 ml).',
             'price' => 199.00,
+            'image' => 'images/bigapplenobg/paquetepareja199.png',
             'badge' => 'Especial Pareja',
             'type' => 'standard',
         ]);
@@ -628,6 +648,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'paquete-familiar',
             'description' => '2 Hamburguesas Clásicas + 2 Hamburguesas Crispy + 1 Coca-Cola 1.35 L + 1 Bebida Natural 1 L.',
             'price' => 349.00,
+            'image' => 'images/bigapplenobg/paquetefamiliar349.png',
             'badge' => 'Familiar Mega',
             'type' => 'standard',
         ]);

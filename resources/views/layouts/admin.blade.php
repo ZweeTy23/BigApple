@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Panel Admin | Big Apple Diner' }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logobigapple.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body class="bg-[#FDF8EE] bg-cream-pattern text-[#1F1F1F] min-h-screen flex flex-col font-sans selection:bg-[#C21818] selection:text-white antialiased">
     
@@ -15,7 +15,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <a href="/admin" class="flex items-center gap-2.5">
-                    <span class="text-2xl">🍔</span>
+                    <img src="{{ asset('images/logobigapple.png') }}" alt="Big Apple Diner" class="w-10 h-10 object-contain rounded-xl bg-white shadow-sm border border-[#EADDC9] p-0.5">
                     <div class="flex flex-col leading-none">
                         <span class="text-[9px] font-black tracking-widest text-[#17A085] uppercase">7 SUCURSALES MÉRIDA</span>
                         <span class="font-bebas text-[#1F1F1F] text-2xl tracking-wide">

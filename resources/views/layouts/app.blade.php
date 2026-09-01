@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Big Apple Diner | Comida Rápida, Hamburguesas & Pastas en Mérida' }}</title>
     <meta name="description" content="Big Apple Diner en Mérida, Yucatán. 7 sucursales: Francisco de Montejo, Zona Dorada, Ciudad Caucel, Plaza Royal Las Américas, Opichén, Serapio Rendón Sur y Plaza Mura Xtabay. Hamburguesas artesanales, boneless, smash burgers y pastas al gusto.">
+    <link rel="icon" type="image/png" href="{{ asset('images/logobigapple.png') }}">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body class="bg-[#FDF8EE] bg-cream-pattern text-[#1F1F1F] min-h-screen flex flex-col font-sans antialiased selection:bg-[#C21818] selection:text-white">
 
@@ -37,8 +37,8 @@
             <!-- Brand Logo -->
             <a href="/" class="flex items-center gap-3 group">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#C21818] via-[#F5A623] to-[#C21818] p-0.5 shadow-md group-hover:scale-105 transition-transform duration-300">
-                    <div class="w-full h-full bg-[#FFFDF8] rounded-2xl flex items-center justify-center relative overflow-hidden">
-                        <span class="text-2xl font-black select-none">🍎</span>
+                    <div class="w-full h-full bg-[#FFFDF8] rounded-2xl flex items-center justify-center relative overflow-hidden p-1">
+                        <img src="{{ asset('images/logobigapple.png') }}" alt="Big Apple Diner Logo" class="w-full h-full object-contain">
                     </div>
                 </div>
                 <div class="flex flex-col leading-none">
@@ -76,8 +76,8 @@
 
                 <!-- Cart Button Livewire Dispatcher -->
                 <button 
-                    x-data 
                     @click="$dispatch('toggle-cart')" 
+                    type="button"
                     class="relative diner-button-primary px-5 py-3 rounded-2xl text-[#FFFDF8] font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-lg cursor-pointer"
                 >
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,8 +95,9 @@
         {{ $slot }}
     </main>
 
-    <!-- Slide-over Cart Component -->
+    <!-- Slide-over Cart & Product Modal Global Components -->
     @livewire('public.cart-component')
+    @livewire('public.product-modal')
 
     <!-- FLOATING MULTI-BRANCH WHATSAPP WIDGET (7 SUCURSALES) -->
     <div 
@@ -240,55 +241,91 @@
     <footer class="bg-[#1F1F1F] border-t border-[#3A352F] text-[#EADDC9] text-xs py-14">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
                 
                 <!-- Brand & Slogan -->
-                <div class="space-y-3 md:col-span-2">
+                <div class="space-y-4 md:col-span-5">
                     <div class="flex items-center gap-3">
-                        <span class="text-3xl">🍔</span>
-                        <div class="font-bebas text-3xl tracking-wide text-[#FFFDF8]">
+                        <img src="{{ asset('images/logobigapple.png') }}" alt="Big Apple Diner" class="w-12 h-12 object-contain rounded-2xl bg-white/10 p-1 border border-white/10">
+                        <div class="font-bebas text-3xl sm:text-4xl tracking-wide text-[#FFFDF8]">
                             BIG APPLE <span class="text-[#C21818]">DINER</span>
                         </div>
                     </div>
-                    <p class="text-xs text-[#C8BAA4] leading-relaxed max-w-md">
+                    <p class="text-xs text-[#C8BAA4] leading-relaxed">
                         Comida rápida gourmet al estilo American Diner en Mérida, Yucatán. 7 sucursales con hamburguesas artesanales con papas cajún, pollo crujiente, smash burgers, fettuccines al gusto y crepas.
                     </p>
 
                     <!-- Order Modalities -->
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-[11px] bg-white/5 border border-white/10 px-3 py-1 rounded-xl text-[#F5A623] font-bold">
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="text-[11px] bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl text-[#F5A623] font-bold">
                             🍽️ Consumo en Sucursal
                         </span>
-                        <span class="text-[11px] bg-white/5 border border-white/10 px-3 py-1 rounded-xl text-[#17A085] font-bold">
+                        <span class="text-[11px] bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl text-[#17A085] font-bold">
                             🛍️ Pick-up vía WhatsApp
                         </span>
-                        <span class="text-[11px] bg-white/5 border border-white/10 px-3 py-1 rounded-xl text-[#FFFDF8] font-bold">
+                        <span class="text-[11px] bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl text-[#FFFDF8] font-bold">
                             🛵 Domicilio: Directo • Uber Eats • Rappi • DiDi Food
                         </span>
                     </div>
 
                     <div class="pt-2">
-                        <a href="https://www.facebook.com/BigappleMid" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[#17A085] hover:text-[#F5A623] transition-colors">
+                        <a href="https://www.facebook.com/BigappleMid" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[#17A085] hover:text-[#F5A623] transition-colors bg-white/5 border border-white/10 px-3 py-2 rounded-xl">
                             <span>📘</span>
                             <span>Facebook Oficial: facebook.com/BigappleMid</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Sucursales Norte / Poniente -->
-                <div class="space-y-2 bg-[#292522] p-5 rounded-2xl border border-white/5 text-[11px]">
-                    <span class="text-xs font-black uppercase text-[#F5A623] tracking-wider block">📍 Norte & Poniente</span>
-                    <p class="text-white font-bold">Montejo • Dorada • Caucel • Royal</p>
-                    <p class="text-[#AFA28F]">🕒 L-J: 11:00 – 22:30 | V-D: 11:00 – 23:30</p>
-                    <p class="text-[#AFA28F]">Dzityá Plaza Royal: Cierra 11:00 PM L-J</p>
+                <!-- Sucursales Norte & Poniente (4 Sucursales) -->
+                <div class="space-y-3 md:col-span-4 bg-[#292522] p-5 rounded-2xl border border-white/5 text-[11px]">
+                    <div class="border-b border-white/10 pb-2">
+                        <span class="text-xs font-black uppercase text-[#F5A623] tracking-wider block">📍 Norte & Poniente</span>
+                        <p class="text-white font-bold text-xs mt-0.5">Montejo • Dorada • Caucel • Royal</p>
+                        <p class="text-[#AFA28F] text-[10px] mt-0.5">🕒 L-J: 11:00 – 22:30 | V-D: 11:00 – 23:30</p>
+                        <p class="text-[#F5A623] text-[10px] font-bold">Dzityá Plaza Royal: Cierra 11:00 PM L-J</p>
+                    </div>
+                    <div class="space-y-2 pt-1 text-[11px]">
+                        <div>
+                            <strong class="text-white">1. Francisco de Montejo:</strong>
+                            <p class="text-[#AFA28F]">Calle 61 #195 • <a href="https://wa.me/529993541087" target="_blank" class="text-[#17A085] hover:underline font-mono font-bold">WA: 999 354 1087</a></p>
+                        </div>
+                        <div>
+                            <strong class="text-white">2. Villas Zona Dorada:</strong>
+                            <p class="text-[#AFA28F]">Calle 47 #553 x 102 • <a href="https://wa.me/529991351212" target="_blank" class="text-[#17A085] hover:underline font-mono font-bold">WA: 999 135 1212</a></p>
+                        </div>
+                        <div>
+                            <strong class="text-white">3. Ciudad Caucel:</strong>
+                            <p class="text-[#AFA28F]">Calle 70 #750 por 93 • <a href="https://wa.me/529994924327" target="_blank" class="text-[#17A085] hover:underline font-mono font-bold">WA: 999 492 4327</a></p>
+                        </div>
+                        <div>
+                            <strong class="text-white">4. Las Américas (Plaza Royal):</strong>
+                            <p class="text-[#AFA28F]">Calle 69 N553-L16, Dzityá • <a href="https://wa.me/529992151522" target="_blank" class="text-[#17A085] hover:underline font-mono font-bold">WA: 999 215 1522</a></p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Sucursales Sur / Oriente -->
-                <div class="space-y-2 bg-[#292522] p-5 rounded-2xl border border-white/5 text-[11px]">
-                    <span class="text-xs font-black uppercase text-[#F5A623] tracking-wider block">📍 Sur & Oriente</span>
-                    <p class="text-white font-bold">Opichén • Sur Serapio • Xtabay</p>
-                    <p class="text-[#AFA28F]">🕒 L-J: 11:00 – 22:30 | V-D: 11:00 – 23:30</p>
-                    <p class="text-[#AFA28F]">Plaza Mura (Leandro Valle / Macroplaza)</p>
+                <!-- Sucursales Sur & Oriente (3 Sucursales) -->
+                <div class="space-y-3 md:col-span-3 bg-[#292522] p-5 rounded-2xl border border-white/5 text-[11px]">
+                    <div class="border-b border-white/10 pb-2">
+                        <span class="text-xs font-black uppercase text-[#F5A623] tracking-wider block">📍 Sur & Oriente</span>
+                        <p class="text-white font-bold text-xs mt-0.5">Opichén • Sur Serapio • Xtabay</p>
+                        <p class="text-[#AFA28F] text-[10px] mt-0.5">🕒 L-J: 11:00 – 22:30 | V-D: 11:00 – 23:30</p>
+                        <p class="text-[#17A085] text-[10px] font-bold">Plaza Mura (Leandro Valle / Macroplaza)</p>
+                    </div>
+                    <div class="space-y-2 pt-1 text-[11px]">
+                        <div>
+                            <strong class="text-white">5. Girasoles de Opichén:</strong>
+                            <p class="text-[#AFA28F]">Calle 81 Diag. #1192 • <a href="https://wa.me/529991481508" target="_blank" class="text-[#17A085] hover:underline font-mono font-bold">WA: 999 148 1508</a></p>
+                        </div>
+                        <div>
+                            <strong class="text-white">6. Sur (Serapio Rendón II):</strong>
+                            <p class="text-[#AFA28F]">Calle 131 #143 x 44 y 46 • <a href="https://wa.me/529994497831" target="_blank" class="text-[#17A085] hover:underline font-mono font-bold">WA: 999 449 7831</a></p>
+                        </div>
+                        <div>
+                            <strong class="text-white">7. Xtabay (Plaza Mura):</strong>
+                            <p class="text-[#AFA28F]">Calle 39 Local 6 • <a href="https://wa.me/529991495947" target="_blank" class="text-[#17A085] hover:underline font-mono font-bold">WA: 999 149 5947</a></p>
+                        </div>
+                    </div>
                 </div>
 
             </div>

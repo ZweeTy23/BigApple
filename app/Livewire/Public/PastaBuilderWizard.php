@@ -114,6 +114,7 @@ class PastaBuilderWizard extends Component
         session()->put('cart', $cart);
 
         $this->dispatch('cart-updated');
+        $this->dispatch('open-cart');
         $this->dispatch('show-toast', message: '¡Tu Pasta personalizada fue agregada al carrito!');
         $this->currentStep = 1;
     }

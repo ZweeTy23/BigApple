@@ -22,7 +22,23 @@
                     </button>
                 </div>
 
-                <div class="p-6 space-y-6 max-h-[75vh] overflow-y-auto">
+                <!-- Product Image Banner in Modal -->
+                <div class="relative h-48 sm:h-56 w-full {{ $product->image ? 'bg-gradient-to-br from-[#FFFDF8] via-[#FAF3E0] to-[#F5E6CC] flex items-center justify-center p-4' : 'bg-black/20' }} overflow-hidden border-b border-[#EADDC9]">
+                    <img 
+                        src="{{ $product->image_url }}" 
+                        alt="{{ $product->name }}" 
+                        class="w-full h-full {{ $product->image ? 'object-contain drop-shadow-xl' : 'object-cover' }}"
+                    >
+                    @if($product->badge)
+                        <div class="absolute top-3 left-3">
+                            <span class="text-[10px] font-black uppercase tracking-wider text-white bg-[#C21818] px-2.5 py-1 rounded-full shadow-md">
+                                {{ $product->badge }}
+                            </span>
+                        </div>
+                    @endif
+                </div>
+
+                <div class="p-6 space-y-6 max-h-[70vh] overflow-y-auto">
                     <!-- Description -->
                     <p class="text-xs text-[#524B40] leading-relaxed bg-[#FDF8EE] p-3.5 rounded-2xl border border-[#EADDC9]">
                         {{ $product->description }}
