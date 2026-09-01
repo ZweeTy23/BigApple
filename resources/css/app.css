@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Outfit:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-bebas: 'Bebas Neue', sans-serif;
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-price: 'Outfit', sans-serif;
+
+    /* Official Big Apple Diner Palette */
+    --color-bigapple-red: #C21818;
+    --color-bigapple-darkred: #8E0E15;
+    --color-bigapple-gold: #F5A623;
+    --color-bigapple-orange: #E85D04;
+    --color-bigapple-aqua: #17A085;
+    --color-bigapple-cream: #FDF8EE;
+    --color-bigapple-card: #FFFDF8;
+    --color-bigapple-border: #EADDC9;
+    --color-bigapple-dark: #1F1F1F;
+    --color-bigapple-muted: #6B6255;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: #FDF8EE;
+    color: #1F1F1F;
+}
+
+.font-bebas {
+    font-family: var(--font-bebas);
+    letter-spacing: 0.04em;
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+.font-price {
+    font-family: var(--font-price);
+}
+
+/* Warm Cream Background Texture Pattern */
+.bg-cream-pattern {
+    background-color: #FDF8EE;
+    background-image: radial-gradient(rgba(194, 24, 24, 0.05) 1.2px, transparent 0);
+    background-size: 24px 24px;
+}
+
+/* Light Cream Diner Card */
+.diner-card {
+    background-color: #FFFDF8;
+    border: 1px solid #EADDC9;
+    box-shadow: 0 4px 20px -4px rgba(60, 45, 20, 0.06);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diner-card:hover {
+    border-color: #F5A623;
+    box-shadow: 0 14px 30px -8px rgba(194, 24, 24, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Buttons */
+.diner-button-primary {
+    background: linear-gradient(135deg, #C21818 0%, #A31212 100%);
+    color: #FFFDF8;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(194, 24, 24, 0.25);
+    transition: all 0.2s ease-in-out;
+}
+
+.diner-button-primary:hover {
+    background: linear-gradient(135deg, #D11919 0%, #B51414 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(194, 24, 24, 0.4);
+}
+
+.diner-button-gold {
+    background: linear-gradient(135deg, #F5A623 0%, #E08E0B 100%);
+    color: #1F1F1F;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(245, 166, 35, 0.25);
+    transition: all 0.2s ease-in-out;
+}
+
+.diner-button-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+}
+
+.diner-button-aqua {
+    background: linear-gradient(135deg, #17A085 0%, #12826B 100%);
+    color: #FFFDF8;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(23, 160, 133, 0.25);
+    transition: all 0.2s ease-in-out;
+}
+
+.diner-button-aqua:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(23, 160, 133, 0.4);
+}
+
+.diner-button-orange {
+    background: linear-gradient(135deg, #E85D04 0%, #D04F00 100%);
+    color: #FFFDF8;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(232, 93, 4, 0.25);
+    transition: all 0.2s ease-in-out;
+}
+
+.diner-button-orange:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 93, 4, 0.4);
+}
+
+/* Ribbons & Price Tags */
+.price-badge {
+    background: linear-gradient(135deg, #F5A623 0%, #F89E1B 100%);
+    color: #1F1F1F;
+    font-family: var(--font-price);
+    font-weight: 800;
+}
+
+.category-ribbon {
+    background: linear-gradient(135deg, #C21818 0%, #8E0E15 100%);
+    color: #FFFDF8;
+}
+
+/* Scrollbar styles */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
